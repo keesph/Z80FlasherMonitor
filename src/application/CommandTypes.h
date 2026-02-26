@@ -12,7 +12,7 @@ typedef enum
 
 typedef enum
 {
-    eSetState,
+    eSetMode,
     eSetPC,
     eSetMaster,
     eSetIncrement,

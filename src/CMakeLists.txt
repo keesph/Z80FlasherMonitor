@@ -18,6 +18,8 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
+add_compile_definitions(SIMULATE_USB)
+
 # Set the project name
 set(CMAKE_PROJECT_NAME Z80FlasherMonitor)
 
