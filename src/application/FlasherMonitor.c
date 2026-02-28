@@ -52,7 +52,12 @@ void FM_vFlasherMonitor_main(void) {
   pcCommand.command = eSetPC;
   pcCommand.pc = 0;
 
-  uint8_t writeData[] = {0x21, 0x00, 0x80, 0x7E, 0x3C, 0x77, 0x18, 0xF9};
+  uint8_t writeData[] = {0x21, 0x00, 0x80, // LD HL 0x8000
+                         0x36, 0x00,       // LD (HL) 0x00
+                         0x7E,             // LD A, (HL)
+                         0x3C,             // INC A
+                         0x77,             // LD (HL), A
+                         0x18, 0xFB};      // JR -7;
   writeAtCommand.command = eWriteAt;
   memcpy(&writeAtCommand.data, &writeData, sizeof(writeData));
   writeAtCommand.length = sizeof(writeData);
